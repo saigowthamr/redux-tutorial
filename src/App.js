@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import { addname, error, changeName } from './actions/actionCreators'
 import './App.css'
 
 class App extends Component {
@@ -53,9 +54,9 @@ const mapStatetoProps = (state) => {
 
 const mapDispatchtoProps = (dispatch) => {
   return {
-    onChangeName: (name) => dispatch({ type: "CHANGE_NAME", name: name }),
-    onAddName: () => dispatch({ type: "ADDNAME" }),
-    onError: (err) => dispatch({ type: "ERROR", error: err })
+    onChangeName: (name) => dispatch(changeName(name)),
+    onAddName: () => dispatch(addname()),
+    onError: (err) => dispatch(error(err))
   }
 }
 
